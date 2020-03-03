@@ -24,7 +24,7 @@
         <div class="layui-main mag0">
             <a href="#" class="logo">汽车出租</a>
             <!-- 显示/隐藏菜单 -->
-            <a href="javascript:;" class="seraph hideMenu icon-caidan"></a>
+            <a href="javascript:" class="seraph hideMenu icon-caidan"></a>
             <!-- 顶部右侧菜单 -->
             <ul class="layui-nav top_menu">
                 <li class="layui-nav-item" pc>
@@ -38,18 +38,18 @@
                 <li class="layui-nav-item" id="userInfo">
                     <a href="javascript:;"><img src="${lzywsgl}/static/images/face.jpg"
                                                 class="layui-nav-img userAvatar" width="35" height="35"><cite
-                            class="adminName">${user.realname }</cite></a>
+                            class="adminName">${user.realname}</cite></a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" data-url="/static/page/user/userInfo.html"><i
+                        <dd><a href="javascript:" data-url="/static/page/user/userInfo.html"><i
                                 class="seraph icon-ziliao" data-icon="icon-ziliao"></i><cite>个人资料</cite></a></dd>
-                        <dd><a href="javascript:;" data-url="/static/page/user/changePwd.html"><i
+                        <dd><a href="javascript:" data-url="/static/page/user/changePwd.html"><i
                                 class="seraph icon-xiugai" data-icon="icon-xiugai"></i><cite>修改密码</cite></a></dd>
-                        <dd><a href="javascript:;" class="showNotice"><i
+                        <dd><a href="javascript:" class="showNotice"><i
                                 class="layui-icon">&#xe645;</i><cite>系统公告</cite><span
                                 class="layui-badge-dot"></span></a></dd>
-                        <dd pc><a href="javascript:;" class="functionSetting"><i class="layui-icon">&#xe620;</i><cite>功能设定</cite><span
+                        <dd pc><a href="javascript:" class="functionSetting"><i class="layui-icon">&#xe620;</i><cite>功能设定</cite><span
                                 class="layui-badge-dot"></span></a></dd>
-                        <dd pc><a href="javascript:;" class="changeSkin"><i
+                        <dd pc><a href="javascript:" class="changeSkin"><i
                                 class="layui-icon">&#xe61b;</i><cite>更换皮肤</cite></a></dd>
                         <dd><a href="page/login/login.html" class="signOut"><i
                                 class="seraph icon-tuichu"></i><cite>退出</cite></a></dd>
@@ -58,7 +58,29 @@
             </ul>
         </div>
     </div>
-
+    <!-- 左侧导航 -->
+    <div class="layui-side layui-bg-black">
+        <div class="user-photo">
+            <a class="img" title="我的头像" ><img src="${lzywsgl}/static/images/face.jpg" class="userAvatar"></a>
+            <p>你好！<span class="userName">${user.realname}</span>, 欢迎登录</p>
+        </div>
+        <!-- 搜索 -->
+        <div class="layui-form component">
+            <select name="search" id="search" lay-search lay-filter="searchPage">
+                <option value="">搜索页面或功能</option>
+                <option value="1">layer</option>
+                <option value="2">form</option>
+            </select>
+            <i class="layui-icon">&#xe615;</i>
+        </div>
+        <div class="navBar layui-side-scroll" id="navBar">
+            <ul class="layui-nav layui-nav-tree">
+                <li class="layui-nav-item layui-this">
+                    <a href="javascript:;" data-url="${lzywsgl}/desk/toDeskManager.action"><i class="layui-icon" data-icon=""></i><cite>后台首页</cite></a>
+                </li>
+            </ul>
+        </div>
+    </div>
     <!-- 右侧内容 -->
     <div class="layui-body layui-form">
         <div class="layui-tab mag0" lay-filter="bodyTab" id="top_tabs_box">
@@ -67,26 +89,26 @@
             </ul>
             <ul class="layui-nav closeBox">
                 <li class="layui-nav-item">
-                    <a href="javascript:;"><i class="layui-icon caozuo">&#xe643;</i> 页面操作</a>
+                    <a href="javascript:"><i class="layui-icon caozuo">&#xe643;</i> 页面操作</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" class="refresh refreshThis"><i class="layui-icon">&#xe669;</i>
+                        <dd><a href="javascript:" class="refresh refreshThis"><i class="layui-icon">&#xe669;</i>
                             刷新当前</a></dd>
-                        <dd><a href="javascript:;" class="closePageOther"><i class="seraph icon-prohibit"></i> 关闭其他</a>
+                        <dd><a href="javascript:" class="closePageOther"><i class="seraph icon-prohibit"></i> 关闭其他</a>
                         </dd>
-                        <dd><a href="javascript:;" class="closePageAll"><i class="seraph icon-guanbi"></i> 关闭全部</a></dd>
+                        <dd><a href="javascript:" class="closePageAll"><i class="seraph icon-guanbi"></i> 关闭全部</a></dd>
                     </dl>
                 </li>
             </ul>
             <div class="layui-tab-content clildFrame">
                 <div class="layui-tab-item layui-show">
-                    <iframe src="${lzywsgl}/static/page/main.html"></iframe>
+                    <iframe src="${lzywsgl}/desk/toDeskManager.action"></iframe>
                 </div>
             </div>
         </div>
     </div>
     <!-- 底部 -->
     <div class="layui-footer footer">
-        <p><span>copyright @2019 老雷</span></p>
+        <p><span>copyright @2020 lzywsgl</span></p>
     </div>
 </div>
 
@@ -101,7 +123,7 @@
         base: "/static/js/"
     }).extend({
         "bodyTab": "bodyTab"
-    })
+    });
     layui.use(['bodyTab', 'form', 'element', 'layer', 'jquery'], function () {
         var form = layui.form,
             element = layui.element;
@@ -109,7 +131,7 @@
         layer = parent.layer === undefined ? layui.layer : top.layer;
         tab = layui.bodyTab({
             openTabNum: "50",  //最大可打开窗口数量
-            url: "/static/json/navs.json" //获取菜单json地址
+            url: "${lzywsgl}/menu/loadIndexLeftMenuJson.action" //获取菜单json地址
         });
 
         //通过顶部菜单获取左侧二三级菜单   注：此处只做演示之用，实际开发中通过接口传参的方式获取导航数据
@@ -134,7 +156,7 @@
             getData($(this).data("menu"));
             //渲染顶部窗口
             tab.tabMove();
-        })
+        });
 
         //隐藏左侧导航
         $(".hideMenu").click(function () {
@@ -145,7 +167,7 @@
             $(".layui-layout-admin").toggleClass("showMenu");
             //渲染顶部窗口
             tab.tabMove();
-        })
+        });
 
         //通过顶部菜单获取左侧二三级菜单   注：此处只做演示之用，实际开发中通过接口传参的方式获取导航数据
         getData("contentManagement");
@@ -166,7 +188,7 @@
                 $('body').removeClass('site-mobile');  //移动端点击菜单关闭菜单层
             }
             $(this).parent("li").siblings().removeClass("layui-nav-itemed");
-        })
+        });
 
         //清除缓存
         $(".clearCache").click(function () {
@@ -177,7 +199,7 @@
                 layer.close(index);
                 layer.msg("缓存清除成功！");
             }, 1000);
-        })
+        });
 
         //刷新后还原打开的窗口
         if (cacheStr == "true") {
@@ -219,12 +241,13 @@
             window.sessionStorage.removeItem("menu");
             window.sessionStorage.removeItem("curmenu");
         }
-    })
+    });
 
     //打开新窗口
     function addTab(_this) {
         tab.tabAdd(_this);
     }
+
     //锁屏
     function lockPage() {
         layer.open({
@@ -247,7 +270,7 @@
                     $(".userAvatar").attr("src", $(".userAvatar").attr("src").split("images/")[0] + "images/" + window.sessionStorage.getItem('userFace').split("images/")[1]);
                 }
             }
-        })
+        });
         $(".admin-header-lock-input").focus();
     }
 </script>

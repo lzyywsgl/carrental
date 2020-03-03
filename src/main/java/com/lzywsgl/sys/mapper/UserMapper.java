@@ -19,7 +19,7 @@ public interface UserMapper {
      * 登陆
      *
      * @param user 用户
-     * @return
+     * @return 登录
      */
     User login(User user);
 }
