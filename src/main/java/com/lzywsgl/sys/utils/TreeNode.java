@@ -1,5 +1,7 @@
 package com.lzywsgl.sys.utils;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,6 +85,7 @@ public class TreeNode {
      * 首页左边导航树的构造器
      */
     public TreeNode(Integer id, Integer pid, String title, String icon, String href, Boolean spread, String target) {
+        super();
         this.id = id;
         this.pid = pid;
         this.title = title;

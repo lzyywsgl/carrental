@@ -23,7 +23,7 @@ public class TreeNodeBuilder {
                 treeNodes.add(n1);
             }
             for (TreeNode n2 : nodes) {
-                if (n2.getPid() == n1.getPid()) {
+                if (n2.getPid() == n1.getId()) {
                     n1.getChildren().add(n2);
                 }
             }
