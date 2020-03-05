@@ -61,7 +61,7 @@
     <!-- 左侧导航 -->
     <div class="layui-side layui-bg-black">
         <div class="user-photo">
-            <a class="img" title="我的头像" ><img src="${lzywsgl}/static/images/face.jpg" class="userAvatar"></a>
+            <a class="img" title="我的头像"><img src="${lzywsgl}/static/images/face.jpg" class="userAvatar"></a>
             <p>你好！<span class="userName">${user.realname}</span>, 欢迎登录</p>
         </div>
         <!-- 搜索 -->
@@ -76,7 +76,8 @@
         <div class="navBar layui-side-scroll" id="navBar">
             <ul class="layui-nav layui-nav-tree">
                 <li class="layui-nav-item layui-this">
-                    <a href="javascript:;" data-url="${lzywsgl}/desk/toDeskManager.action"><i class="layui-icon" data-icon=""></i><cite>后台首页</cite></a>
+                    <a href="javascript:;" data-url="${lzywsgl}/desk/toDeskManager.action"><i class="layui-icon"
+                                                                                              data-icon=""></i><cite>后台首页</cite></a>
                 </li>
             </ul>
         </div>
@@ -120,7 +121,7 @@
 <script type="text/javascript">
     var $, tab, dataStr, layer;
     layui.config({
-        base: "/static/js/"
+        base: "${lzywsgl}/static/js/"
     }).extend({
         "bodyTab": "bodyTab"
     });

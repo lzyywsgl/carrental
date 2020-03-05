@@ -16,6 +16,7 @@ import java.util.List;
  **/
 public class TreeNode {
     private Integer id;
+    @JsonProperty("parentId")
     private Integer pid;
 
     private String title;

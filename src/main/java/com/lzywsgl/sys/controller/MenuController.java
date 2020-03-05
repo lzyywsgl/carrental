@@ -4,15 +4,13 @@ import com.lzywsgl.sys.constast.SysConstast;
 import com.lzywsgl.sys.domain.Menu;
 import com.lzywsgl.sys.domain.User;
 import com.lzywsgl.sys.service.MenuService;
-import com.lzywsgl.sys.utils.DataGridView;
-import com.lzywsgl.sys.utils.TreeNode;
-import com.lzywsgl.sys.utils.TreeNodeBuilder;
-import com.lzywsgl.sys.utils.WebUtils;
+import com.lzywsgl.sys.utils.*;
 import com.lzywsgl.sys.vo.Menuvo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.xml.transform.Result;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,17 +35,7 @@ public class MenuController {
             list = this.menuService.queryMenuByUserIdForList(menuvo, user.getUserid());
         }
         List<TreeNode> treeNodes= new ArrayList<>();
-        for (Menu menu : list) {
-            Integer id=menu.getId();
-            Integer pid=menu.getPid();
-            String title=menu.getTitle();
-            String icon=menu.getIcon();
-            String href=menu.getHref();
-            Boolean spread= menu.getSpread() == SysConstast.SPREAD_TURE;
-            String target=menu.getTarget();
-            treeNodes.add(new TreeNode(id, pid, title, icon, href, spread, target));
-        }
-        return TreeNodeBuilder.builder(treeNodes, 1);
+        return TreeNodeBuilder.builder(listToNodes(list, treeNodes), 1);
     }
 
     /**
@@ -58,8 +46,7 @@ public class MenuController {
         menuvo.setAvailable(SysConstast.AVAILABLE_TRUE); //只查询可用的
         List<Menu> list = this.menuService.queryAllMenuForList(menuvo);
         List<TreeNode> treeNodes= new ArrayList<>();
-        listToNodes(list, treeNodes);
-        return new DataGridView(treeNodes);
+        return new DataGridView(listToNodes(list, treeNodes));
     }
 
     /**
@@ -68,6 +55,20 @@ public class MenuController {
     @RequestMapping("loadAllMenu")
     public DataGridView loadAllMenu(Menuvo menuvo) {
         return this.menuService.queryAllMenu(menuvo);
+    }
+
+    /**
+     * 添加菜单
+     */
+    @RequestMapping("addMenu")
+    public ResultObj addMenu(Menuvo menuvo) {
+        try {
+            this.menuService.addMenu(menuvo);
+            return ResultObj.ADD_SUCCESS;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultObj.ADD_ERROR;
+        }
     }
     //把list里面的数据放到nodes
     private List<TreeNode> listToNodes(List<Menu> list, List<TreeNode> treeNodes) {

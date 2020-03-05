@@ -1,6 +1,7 @@
 package com.lzywsgl.sys.service;
 
 import com.lzywsgl.sys.domain.Menu;
+import com.lzywsgl.sys.utils.DataGridView;
 import com.lzywsgl.sys.vo.Menuvo;
 
 import java.util.List;
@@ -12,7 +13,6 @@ public interface MenuService {
 
     /**
      * 查询所有菜单返回
-     *
      * @return List<Menu>
      */
     public List<Menu> queryAllMenuForList(Menuvo menuvo);
@@ -23,4 +23,16 @@ public interface MenuService {
      * @return List<Menu>
      */
     public List<Menu> queryMenuByUserIdForList(Menuvo menuvo, Integer userId);
+
+    /**
+     * 查询所有菜单
+     *
+     * @return DataGridView
+     */
+    public DataGridView queryAllMenu(Menuvo menuvo);
+
+    /**
+     * 添加菜单
+     */
+    public void addMenu(Menuvo menuvo);
 }
