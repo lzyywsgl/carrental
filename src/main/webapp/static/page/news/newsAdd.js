@@ -1,5 +1,5 @@
 layui.use(['form','layer','layedit','laydate','upload'],function(){
-    var form = layui.form
+    var form = layui.form;
         layer = parent.layer === undefined ? layui.layer : top.layer,
         laypage = layui.laypage,
         upload = layui.upload,
@@ -63,7 +63,7 @@ layui.use(['form','layer','layedit','laydate','upload'],function(){
                 return "文章内容不能为空";
             }
         }
-    })
+    });
     form.on("submit(addNews)",function(data){
         //截取文章内容中的一部分文字放入文章摘要
         var abstract = layedit.getText(editIndex).substring(0,50);
@@ -90,13 +90,13 @@ layui.use(['form','layer','layedit','laydate','upload'],function(){
             parent.location.reload();
         },500);
         return false;
-    })
+    });
 
     //预览
     form.on("submit(look)",function(){
         layer.alert("此功能需要前台展示，实际开发中传入对应的必要参数进行文章内容页面访问");
         return false;
-    })
+    });
 
     //创建一个编辑器
     var editIndex = layedit.build('news_content',{
@@ -106,4 +106,4 @@ layui.use(['form','layer','layedit','laydate','upload'],function(){
         }
     });
 
-})
+});

@@ -38,4 +38,4 @@ layui.use(['table'],function(){
         ]]
     });
  	
-})
+});

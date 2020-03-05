@@ -44,14 +44,14 @@ layui.use(['form', 'jquery', "layer"], function () {
 
     $(".showNotice").on("click", function () {
         showNotice();
-    })
+    });
 
     
 
     $(".lockcms").on("click", function () {
         window.sessionStorage.setItem("lockcms", true);
         lockPage();
-    })
+    });
     // 判断是否显示锁屏
     if (window.sessionStorage.getItem("lockcms") == "true") {
         lockPage();
@@ -84,7 +84,7 @@ layui.use(['form', 'jquery', "layer"], function () {
         window.sessionStorage.removeItem("menu");
         menu = [];
         window.sessionStorage.removeItem("curmenu");
-    })
+    });
 
     //功能设定
     $(".functionSetting").click(function () {
@@ -147,7 +147,7 @@ layui.use(['form', 'jquery', "layer"], function () {
                 form.render();  //表单渲染
             }
         })
-    })
+    });
 
     //判断是否修改过系统基本设置，去显示底部版权信息
     if (window.sessionStorage.getItem("systemParameter")) {
@@ -199,14 +199,12 @@ layui.use(['form', 'jquery', "layer"], function () {
                 if (window.sessionStorage.getItem("skinValue")) {
                     $(".skins_box input[value=" + window.sessionStorage.getItem("skinValue") + "]").attr("checked", "checked");
                 }
-                ;
                 if ($(".skins_box input[value=自定义]").attr("checked")) {
                     $(".skinCustom").css("visibility", "inherit");
                     $(".topColor").val(skin.split(',')[0]);
                     $(".leftColor").val(skin.split(',')[1]);
                     $(".menuColor").val(skin.split(',')[2]);
                 }
-                ;
                 form.render();
                 $(".skins_box").removeClass("layui-hide");
                 $(".skins_box .layui-form-radio").on("click", function () {
@@ -226,17 +224,17 @@ layui.use(['form', 'jquery', "layer"], function () {
                     } else {
                         $(".skinCustom").css("visibility", "inherit");
                     }
-                })
+                });
                 var skinStr, skinColor;
                 $(".topColor").blur(function () {
                     $(".layui-layout-admin .layui-header").css("background-color", $(this).val() + " !important");
-                })
+                });
                 $(".leftColor").blur(function () {
                     $(".layui-bg-black").css("background-color", $(this).val() + " !important");
-                })
+                });
                 $(".menuColor").blur(function () {
                     $(".hideMenu").css("background-color", $(this).val() + " !important");
-                })
+                });
 
                 form.on("submit(changeSkin)", function (data) {
                     if (data.field.skin != "自定义") {
@@ -271,4 +269,4 @@ layui.use(['form', 'jquery', "layer"], function () {
         })
     })
 
-})
+});

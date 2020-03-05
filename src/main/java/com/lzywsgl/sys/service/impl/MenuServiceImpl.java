@@ -46,4 +46,22 @@ public class MenuServiceImpl implements MenuService {
         this.menuMapper.insertSelective(menuvo);
     }
 
+    @Override
+    public void updateMenu(Menuvo menuvo) {
+        this.menuMapper.updateByPrimaryKeySelective(menuvo);
+    }
+
+    @Override
+    public void deleteMenu(Menuvo menuvo) {
+        //删除菜单表的数据
+        this.menuMapper.deleteByPrimaryKey(menuvo.getId());
+        //根据菜单id删除sys_role_menu里面的数据
+        this.menuMapper.deleteRoleMenuByMid(menuvo.getId());
+    }
+
+    @Override
+    public Integer queryMenuByPid(Integer pid) {
+        return this.menuMapper.queryMenuByPid(pid);
+    }
+
 }

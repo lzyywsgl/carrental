@@ -80,7 +80,7 @@ layui.use(['form','layer','laydate','table','upload'],function(){
     }
     $(".addLink_btn").click(function(){
         addLink();
-    })
+    });
 
     //批量删除
     $(".delAll_btn").click(function(){
@@ -102,7 +102,7 @@ layui.use(['form','layer','laydate','table','upload'],function(){
         }else{
             layer.msg("请选择需要删除的文章");
         }
-    })
+    });
 
     //列表操作
     table.on('tool(linkList)', function(obj){
@@ -171,4 +171,4 @@ layui.use(['form','layer','laydate','table','upload'],function(){
         return false;
     })
 
-})
+});

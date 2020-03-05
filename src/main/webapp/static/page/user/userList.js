@@ -82,7 +82,7 @@ layui.use(['form','layer','table','laytpl'],function(){
                     });
                 },500)
             }
-        })
+        });
         layui.layer.full(index);
         window.sessionStorage.setItem("index",index);
         //改变窗口大小时，重置弹窗的宽高，防止超出可视区域（如F12调出debug的操作）
@@ -92,7 +92,7 @@ layui.use(['form','layer','table','laytpl'],function(){
     }
     $(".addNews_btn").click(function(){
         addUser();
-    })
+    });
 
     //批量删除
     $(".delAll_btn").click(function(){
@@ -114,7 +114,7 @@ layui.use(['form','layer','table','laytpl'],function(){
         }else{
             layer.msg("请选择需要删除的用户");
         }
-    })
+    });
 
     //列表操作
     table.on('tool(userList)', function(obj){
@@ -155,4 +155,4 @@ layui.use(['form','layer','table','laytpl'],function(){
         }
     });
 
-})
+});

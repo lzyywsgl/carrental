@@ -23,7 +23,7 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
                 return "两次输入密码不一致，请重新输入！";
             }
         }
-    })
+    });
 
     //用户等级
     table.render({
@@ -89,4 +89,4 @@ layui.use(['form','layer','laydate','table','laytpl'],function(){
         $(this).find(".layui-table-edit").addClass("layui-"+$(this).attr("align"));
     });
 
-})
+});

@@ -81,10 +81,10 @@
             $(this).find(".layui-anim").addClass("layui-anim-scaleSpring");
         }, function () {
             $(this).find(".layui-anim").removeClass("layui-anim-scaleSpring");
-        })
+        });
         $(".panel a").click(function () {
             parent.addTab($(this));
-        })
+        });
         //最新文章列表
         $.get("${lzywsgl}/static/json/newsList.json", function (data) {
             var hotNewsHtml = '';

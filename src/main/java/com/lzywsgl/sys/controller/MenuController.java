@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.xml.transform.Result;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +33,7 @@ public class MenuController {
         } else {
             list = this.menuService.queryMenuByUserIdForList(menuvo, user.getUserid());
         }
-        List<TreeNode> treeNodes= new ArrayList<>();
+        List<TreeNode> treeNodes = new ArrayList<>();
         return TreeNodeBuilder.builder(listToNodes(list, treeNodes), 1);
     }
 
@@ -45,12 +44,12 @@ public class MenuController {
     public DataGridView loadMenuManagerLeftTreeJson(Menuvo menuvo) {
         menuvo.setAvailable(SysConstast.AVAILABLE_TRUE); //只查询可用的
         List<Menu> list = this.menuService.queryAllMenuForList(menuvo);
-        List<TreeNode> treeNodes= new ArrayList<>();
+        List<TreeNode> treeNodes = new ArrayList<>();
         return new DataGridView(listToNodes(list, treeNodes));
     }
 
     /**
-     *加载菜单列表返回DataGridView
+     * 加载菜单列表返回DataGridView
      */
     @RequestMapping("loadAllMenu")
     public DataGridView loadAllMenu(Menuvo menuvo) {
@@ -70,6 +69,51 @@ public class MenuController {
             return ResultObj.ADD_ERROR;
         }
     }
+
+    /**
+     * 修改菜单
+     */
+    @RequestMapping("updateMenu")
+    public ResultObj updateMenu(Menuvo menuvo) {
+        try {
+            this.menuService.updateMenu(menuvo);
+            return ResultObj.UPDATE_SUCCESS;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultObj.UPDATE_ERROR;
+        }
+    }
+
+    /**
+     * 删除菜单
+     */
+    @RequestMapping("deleteMenu")
+    public ResultObj deleteMenu(Menuvo menuvo) {
+        try {
+            this.menuService.deleteMenu(menuvo);
+            return ResultObj.DELETE_SUCCESS;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultObj.DELETE_ERROR;
+        }
+    }
+
+    /**
+     * 根据id判断当前菜单有没有子节点
+     * 有返回code>=0
+     * 没有 返回code<0
+     */
+    @RequestMapping("checkMenuHasChildren")
+    public ResultObj checkMenuHasChildren(Menuvo menuvo) {
+        //根据pid查询菜单数量
+        Integer count = this.menuService.queryMenuByPid(menuvo.getPid());
+        if (count > 0) {
+            return ResultObj.STATUS_TRUE;
+        } else {
+            return ResultObj.STATUS_FALSE;
+        }
+    }
+
     //把list里面的数据放到nodes
     private List<TreeNode> listToNodes(List<Menu> list, List<TreeNode> treeNodes) {
         for (Menu menu : list) {

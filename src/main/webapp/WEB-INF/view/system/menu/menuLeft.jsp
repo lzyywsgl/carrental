@@ -41,7 +41,7 @@
     dataStyle: "layuiStyle",  //使用layui风格的数据格式
     response:{message:"msg",statusCode:0},  //修改response中返回数据的定义
     dataFormat: "list",  //配置data的风格为list
-    url: "${lzywsgl}/menu/loadMenuManagerLeftTreeJson.action" // 使用url加载（可与data加载同时存在）
+    url: "${lzywsgl}/menu/loadMenuManagerLeftTreeJson.action?spread=1" // 使用url加载（可与data加载同时存在）
     });
 
     //监听树的节点点击 事件

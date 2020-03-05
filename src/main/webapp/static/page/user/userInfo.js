@@ -3,7 +3,7 @@ layui.config({
     base : "../../js/"
 }).extend({
     "address" : "address"
-})
+});
 layui.use(['form','layer','upload','laydate',"address"],function(){
     form = layui.form;
     $ = layui.jquery;
@@ -31,7 +31,7 @@ layui.use(['form','layer','upload','laydate',"address"],function(){
                 return "出生日期格式不正确！";
             }
         }
-    })
+    });
     //选择出生日期
     laydate.render({
         elem: '.userBirthday',
@@ -76,7 +76,7 @@ layui.use(['form','layer','upload','laydate',"address"],function(){
             layer.msg("提交成功！");
         },2000);
         return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
-    })
+    });
 
     //修改密码
     form.on("submit(changePwd)",function(data){
@@ -88,4 +88,4 @@ layui.use(['form','layer','upload','laydate',"address"],function(){
         },2000);
         return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
     })
-})
+});

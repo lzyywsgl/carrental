@@ -44,7 +44,7 @@ public interface SysConstast {
     String DISPATCH_SUCCESS = "分配成功";
     String DISPATCH_ERROR = "分配失败";
 
-    Integer CODE_SUCCESS = 1;
-    Integer CODE_ERROR = 0;
+    Integer CODE_SUCCESS = 0;
+    Integer CODE_ERROR = -1;
 
 }

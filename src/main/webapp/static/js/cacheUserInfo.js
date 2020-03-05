@@ -45,7 +45,7 @@ layui.config({
             }
             $(".userAddress select[name='area']").val(userInfo.area); //区
             form.render();
-        })
+        });
         for(key in userInfo){
             if(key.indexOf("like") != -1){
                 $(".userHobby input[name='"+key+"']").attr("checked","checked");
@@ -55,4 +55,4 @@ layui.config({
         $(".myself").val(userInfo.myself); //自我评价
         form.render();
     }
-})
+});

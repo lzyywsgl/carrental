@@ -16,8 +16,13 @@ public class ResultObj {
     private String msg;
 
     private ResultObj(Integer code, String msg) {
+        super();
         this.code = code;
         this.msg = msg;
+    }
+    private ResultObj(Integer code) {
+        super();
+        this.code = code;
     }
 
     /**
@@ -71,6 +76,14 @@ public class ResultObj {
      */
     public static final ResultObj DISPATCH_ERROR = new ResultObj(SysConstast.CODE_ERROR, SysConstast.DISPATCH_ERROR);
 
+    /**
+     * 状态码0
+     */
+    public static final ResultObj STATUS_TRUE=new ResultObj(SysConstast.CODE_SUCCESS);
+    /**
+     * 状态码-1
+     */
+    public static final ResultObj STATUS_FALSE=new ResultObj(SysConstast.CODE_ERROR);
 
     public Integer getCode() {
         return code;

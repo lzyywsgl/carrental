@@ -28,16 +28,16 @@
             <!-- 顶部右侧菜单 -->
             <ul class="layui-nav top_menu">
                 <li class="layui-nav-item" pc>
-                    <a href="javascript:;" class="clearCache"><i class="layui-icon"
-                                                                 data-icon="&#xe640;">&#xe640;</i><cite>清除缓存</cite><span
+                    <a href="javascript:" class="clearCache"><i class="layui-icon"
+                                                                data-icon="&#xe640;">&#xe640;</i><cite>清除缓存</cite><span
                             class="layui-badge-dot"></span></a>
                 </li>
                 <li class="layui-nav-item lockcms" pc>
                     <a href="javascript:"><i class="seraph icon-lock"></i><cite>锁屏</cite></a>
                 </li>
                 <li class="layui-nav-item" id="userInfo">
-                    <a href="javascript:;"><img src="${lzywsgl}/static/images/face.jpg"
-                                                class="layui-nav-img userAvatar" width="35" height="35"><cite
+                    <a href="javascript:"><img src="${lzywsgl}/static/images/face.jpg"
+                                               class="layui-nav-img userAvatar" width="35" height="35"><cite
                             class="adminName">${user.realname}</cite></a>
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:" data-url="/static/page/user/userInfo.html"><i
@@ -76,8 +76,8 @@
         <div class="navBar layui-side-scroll" id="navBar">
             <ul class="layui-nav layui-nav-tree">
                 <li class="layui-nav-item layui-this">
-                    <a href="javascript:;" data-url="${lzywsgl}/desk/toDeskManager.action"><i class="layui-icon"
-                                                                                              data-icon=""></i><cite>后台首页</cite></a>
+                    <a href="javascript:" data-url="${lzywsgl}/desk/toDeskManager.action"><i class="layui-icon"
+                                                                                             data-icon=""></i><cite>后台首页</cite></a>
                 </li>
             </ul>
         </div>
@@ -223,7 +223,7 @@
                         title: openTitle,
                         content: "<iframe src='" + menu[i].href + "' data-id='" + menu[i].layId + "'></frame>",
                         id: menu[i].layId
-                    })
+                    });
                     //定位到刷新前的窗口
                     if (curmenu != "undefined") {
                         if (curmenu == '' || curmenu == "null") {  //定位到后台首页
