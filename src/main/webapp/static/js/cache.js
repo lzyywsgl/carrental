@@ -1,11 +1,5 @@
 var cacheStr = window.sessionStorage.getItem("cache"),
     oneLoginStr = window.sessionStorage.getItem("oneLogin");
-if (sessionStorage.getItem("key") != null) {
-    console.log("meiyou");
-}
-else{
-    console.log("you");
-}
 layui.use(['form', 'jquery', "layer"], function () {
     var form = layui.form,
         $ = layui.jquery,
@@ -46,7 +40,6 @@ layui.use(['form', 'jquery', "layer"], function () {
         showNotice();
     });
 
-    
 
     $(".lockcms").on("click", function () {
         window.sessionStorage.setItem("lockcms", true);
