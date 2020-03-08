@@ -98,10 +98,14 @@
     </select>
     <!-- 根据角色id删除sys_role_menu里面的数据deleteRoleMenuByRid -->
     <delete id="deleteRoleMenuByRid">
-        delete from sys_role_menu where rid=#{rid}
+        delete from sys_role_menu where rid=#{roleid}
     </delete>
     <!-- 根据角色id删除sys_role_user里面的数据deleteRoleUserByRid -->
     <delete id="deleteRoleUserByRid">
-        delete from sys_role_user where rid=#{rid}
+        delete from sys_role_user where rid=#{roleid}
     </delete>
+    <!-- 保存角色与菜单之间的关系-->
+    <insert id="insertRoleMenu">
+        insert into sys_role_menu (rid, mid) values (#{rid},#{mid})
+    </insert>
 </mapper>

@@ -172,8 +172,7 @@
                     deleteBatch();
                     break;
             }
-            ;
-        })
+        });
         //监听行工具事件
         table.on('tool(roleTable)', function (obj) {
             var data = obj.data; //获得当前行数据
@@ -189,8 +188,11 @@
                 });
             } else if (layEvent === 'edit') { //编辑
                 openUpdateRole(data);
+            } else if (layEvent === 'selectRoleMenu') {
+                openselectRoleMenu(data);
             }
         });
+
 
         var url;
         var mainIndex;
@@ -259,7 +261,45 @@
                 })
             });
         }
-    });
+
+        // 打开分配菜单的弹出层
+        function openselectRoleMenu(data) {
+            var menuTree;
+            mainIndex = layer.open({
+                type: 1,
+                title: '分配【' + data.rolename + '】的角色',
+                content: $("#selectRoleMenu"),
+                area: ['400px', '500px'],
+                btnAlign: 'c',
+                btn: ['<div class="layui-icon layui-icon-release">确认分配</div>', '<div class="layui-icon layui-icon-close">取消分配</div>'],
+                yes: function (index, layero) {
+                    var nodes = dtree.getCheckbarNodesParam("menuTree");
+                    var roleid = data.roleid;
+                    var params = "roleid=" + roleid;
+                    $.each(nodes, function (i, item) {
+                        params += "&ids=" + item.nodeId;
+                    });
+                    //保存角色和菜单的关系
+                    $.post("${lzywsgl}/role/saveRoleMenu.action", params, function (obj) {
+                        layer.msg(obj.msg);
+                    })
+                },
+                success: function (index) {
+                    //初始化树
+                    menuTree = dtree.render({
+                        elem: "#menuTree",
+                        dataStyle: "layuiStyle", //使用layui风格的数据格式
+                        response: {message: "msg", statusCode: 0}, //修改response中返回数据的定义
+                        dataFormat: "list",  //配置data的风格为list
+                        checkbar: true,
+                        checkbarType: "all", //默认就是all，其他的值为： no-all  p-casc   self  only
+                        checkbarData: "choose",
+                        url: "${lzywsgl}/role/initRoleMenuTreeJson.action?roleid=" + data.roleid //使用url加载（可与data加载同时存在）
+                    });
+                }
+            });
+        }
+    })
 </script>
 </body>
 </html>

@@ -32,4 +32,9 @@ public interface RoleMapper {
      * 根据角色id删除sys_role_user里面的数据
      */
     void deleteRoleUserByRid(@Param("roleid") Integer rid);
+
+    /**
+     * 保存角色和菜单的关系sys_role_menu
+     */
+    void insertRoleMenu(@Param("rid") Integer rid, @Param("mid") Integer mid);
 }

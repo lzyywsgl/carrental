@@ -45,8 +45,19 @@ public interface RoleService {
      * 根据id删除角色
      */
     public void deleteRole(Integer roleid);
+
     /**
      * 批量删除角色
      */
-    public void deleteBatchRole(Integer [] ids);
+    public void deleteBatchRole(Integer[] ids);
+
+    /**
+     * 加载角色管理分配菜单的json
+     */
+    public DataGridView initRoleMenuTreeJson(Integer roleid);
+
+    /**
+     * 保存角色和菜单的关系
+     */
+    public void saveRoleMenu(Rolevo rolevo);
 }

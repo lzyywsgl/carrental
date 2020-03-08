@@ -19,12 +19,31 @@ public class TreeNode {
     @JsonProperty("parentId")
     private Integer pid;
 
+    // 复选树必要属性
+    private String checkArr = "0";//选中就是1
     private String title;
     private String icon;
     private String href;
     private Boolean spread;
     private String target;
     private List<TreeNode> children = new ArrayList<>();
+
+    /**
+     * 复选树的使用
+     * @param id id
+     * @param pid id
+     * @param title 标题
+     * @param spread 分页
+     * @param checkArr 复选树属性
+     */
+    public TreeNode(Integer id, Integer pid, String title, Boolean spread, String checkArr) {
+        super();
+        this.id = id;
+        this.pid = pid;
+        this.title = title;
+        this.spread = spread;
+        this.checkArr = checkArr;
+    }
 
     public Integer getId() {
         return id;
@@ -94,6 +113,14 @@ public class TreeNode {
         this.href = href;
         this.spread = spread;
         this.target = target;
+    }
+
+    public String getCheckArr() {
+        return checkArr;
+    }
+
+    public void setCheckArr(String checkArr) {
+        this.checkArr = checkArr;
     }
 
     public List<TreeNode> getChildren() {

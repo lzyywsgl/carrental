@@ -16,5 +16,4 @@
     <frame src="${lzywsgl}/sys/toMenuLeft.action" name="left">
     <frame src="${lzywsgl}/sys/toMenuRight.action" name="right">
     </frameset>
-
 </html>

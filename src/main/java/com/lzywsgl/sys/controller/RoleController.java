@@ -90,4 +90,27 @@ public class RoleController {
             return ResultObj.DELETE_ERROR;
         }
     }
+
+    /**
+     * 加载角色管理分配菜单的json
+     */
+    @RequestMapping("initRoleMenuTreeJson")
+    public DataGridView initRoleMenuTreeJson(Integer roleid) {
+        return this.roleService.initRoleMenuTreeJson(roleid);
+    }
+
+    /**
+     * 保存角色和菜单的关系
+     */
+    @RequestMapping("saveRoleMenu")
+    public ResultObj saveRoleMenu(Rolevo rolevo) {
+        try {
+            this.roleService.saveRoleMenu(rolevo);
+            return ResultObj.DISPATCH_SUCCESS;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultObj.DISPATCH_ERROR;
+        }
+    }
+
 }
