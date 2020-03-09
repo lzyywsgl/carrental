@@ -57,4 +57,11 @@ public class SysController {
     public String toUserManager() {
         return "system/user/userManager";
     }
+    /**
+     * @return 日志管理
+     */
+    @RequestMapping("toLogInfoManager")
+    public String toLogInfoManager() {
+        return "system/logInfo/logInfoManager";
+    }
 }
