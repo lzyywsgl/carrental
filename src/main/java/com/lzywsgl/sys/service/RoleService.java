@@ -60,4 +60,6 @@ public interface RoleService {
      * 保存角色和菜单的关系
      */
     public void saveRoleMenu(Rolevo rolevo);
+
+
 }

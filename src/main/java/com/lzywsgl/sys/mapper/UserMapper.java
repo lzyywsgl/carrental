@@ -2,6 +2,8 @@ package com.lzywsgl.sys.mapper;
 
 import com.lzywsgl.sys.domain.User;
 
+import java.util.List;
+
 public interface UserMapper {
     int deleteByPrimaryKey(Integer userid);
 
@@ -22,4 +24,9 @@ public interface UserMapper {
      * @return 登录
      */
     User login(User user);
+
+    /**
+     * 查询用户
+     */
+    List<User> queryAllUser(User user);
 }

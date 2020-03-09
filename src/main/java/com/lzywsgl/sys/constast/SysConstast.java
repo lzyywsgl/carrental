@@ -54,4 +54,9 @@ public interface SysConstast {
     Integer CODE_ONE = 1;
     Integer CODE_TWO = 2;
     Integer CODE_THREE = 3;
+
+    /**
+     * 默认密码配置
+     */
+    String USER_DEFAULT_PWD = "123456";
 }

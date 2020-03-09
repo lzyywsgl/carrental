@@ -207,6 +207,7 @@
                 success: function (index) {
                     //清空表单数据
                     $("#dataFrm")[0].reset();
+                    $(':input').val('');
                     url = "${lzywsgl}/role/addRole.action";
                 }
             });
