@@ -159,6 +159,7 @@
             var params = $("#searchFrm").serialize();
             tableIns.reload({
                 url: "${lzywsgl}/role/loadAllRole.action?" + params
+                page: {curr: 1}
             })
         });
 

@@ -235,6 +235,7 @@
             var params = $("#searchFrm").serialize();
             tableIns.reload({
                 url: "${lzywsgl}/user/loadAllUser.action?" + params
+                page: {curr: 1}
             })
         });
 

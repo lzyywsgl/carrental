@@ -119,6 +119,7 @@
             var params = $("#searchFrm").serialize();
             tableIns.reload({
                 url: "${lzywsgl}/logInfo/loadAllLogInfo.action?" + params
+                page: {curr: 1}
             })
         });
 

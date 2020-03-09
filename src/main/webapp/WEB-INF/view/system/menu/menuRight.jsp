@@ -190,6 +190,7 @@
         alert(params);
         tableIns.reload({
         url:"${lzywsgl}/menu/loadAllMenu.action?"+params
+        page: {curr: 1}
         });
         });
 
