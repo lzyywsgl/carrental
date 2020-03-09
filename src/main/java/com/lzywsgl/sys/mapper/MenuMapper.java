@@ -39,4 +39,10 @@ public interface MenuMapper {
      */
     List<Menu> queryMenuByRoleId(@Param("available") Integer available, @Param("rid") Integer rid);
 
+    /**
+     * 保存用户和角色的关系
+     */
+    List<Menu> queryMenuByUid(@Param("available") Integer available, @Param("uid") Integer userId);
+
+
 }
