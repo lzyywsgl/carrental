@@ -64,4 +64,12 @@ public class SysController {
     public String toLogInfoManager() {
         return "system/logInfo/logInfoManager";
     }
+
+    /**
+     * @return 公告管理
+     */
+    @RequestMapping("toNewsManager")
+    public String toNewsManager() {
+        return "system/news/newsManager";
+    }
 }

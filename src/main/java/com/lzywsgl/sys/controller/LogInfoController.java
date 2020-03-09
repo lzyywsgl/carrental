@@ -1,6 +1,6 @@
 package com.lzywsgl.sys.controller;
 
-import com.lzywsgl.sys.domain.Loginfo;
+
 import com.lzywsgl.sys.service.LogInfoService;
 import com.lzywsgl.sys.utils.DataGridView;
 import com.lzywsgl.sys.utils.ResultObj;
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.xml.transform.Result;
 
 /**
  * Created by IntelliJ IDEA.
