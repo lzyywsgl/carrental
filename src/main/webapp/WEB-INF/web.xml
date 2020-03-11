@@ -92,6 +92,7 @@
         <filter-name>WebStatFilter</filter-name>
         <servlet-name>StatViewServlet</servlet-name>
     </filter-mapping>
+    <!-- !&#45;&#45; druid的监控页面配置结束 -->
 
     <!-- 前端控制器结束 -->
 
