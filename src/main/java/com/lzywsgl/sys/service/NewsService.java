@@ -1,5 +1,6 @@
 package com.lzywsgl.sys.service;
 
+import com.lzywsgl.sys.domain.News;
 import com.lzywsgl.sys.utils.DataGridView;
 import com.lzywsgl.sys.vo.Newsvo;
 
@@ -37,4 +38,10 @@ public interface NewsService {
      * 批量删除公告
      */
     public void deleteBatchNews(Integer[] ids);
+
+    /**
+     * 查询一个公告
+     */
+    public News queryNewsById(Integer id);
+
 }

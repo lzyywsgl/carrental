@@ -58,4 +58,9 @@ public class NewsServiceImpl implements NewsService {
             this.newsMapper.deleteByPrimaryKey(integer);
         }
     }
+
+    @Override
+    public News queryNewsById(Integer id) {
+        return this.newsMapper.selectByPrimaryKey(id);
+    }
 }

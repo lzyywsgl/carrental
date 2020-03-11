@@ -1,5 +1,6 @@
 package com.lzywsgl.sys.controller;
 
+import com.lzywsgl.sys.domain.News;
 import com.lzywsgl.sys.domain.User;
 import com.lzywsgl.sys.service.NewsService;
 import com.lzywsgl.sys.utils.DataGridView;
@@ -96,5 +97,13 @@ public class NewsController {
             e.printStackTrace();
             return ResultObj.DELETE_ERROR;
         }
+    }
+
+    /**
+     * 根据id查询公告
+     */
+    @RequestMapping("loadNewsById")
+    public News loadNewsById(Integer id) {
+        return this.newsService.queryNewsById(id);
     }
 }
