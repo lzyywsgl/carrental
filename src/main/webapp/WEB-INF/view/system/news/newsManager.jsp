@@ -14,11 +14,6 @@
     <title>公告管理</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta http-equiv="cache-control" content="no-cache,no-store, must-revalidate" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">

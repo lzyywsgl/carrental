@@ -189,7 +189,7 @@
         var params=$("#searchForm").serialize();
         alert(params);
         tableIns.reload({
-        url:"${lzywsgl}/menu/loadAllMenu.action?"+params
+        url:"${lzywsgl}/menu/loadAllMenu.action?"+params,
         page: {curr: 1}
         });
         });

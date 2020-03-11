@@ -42,7 +42,8 @@ public class MenuController {
      */
     @RequestMapping("loadMenuManagerLeftTreeJson")
     public DataGridView loadMenuManagerLeftTreeJson(Menuvo menuvo) {
-        menuvo.setAvailable(SysConstast.AVAILABLE_TRUE); //只查询可用的
+        //只查询可用的
+        menuvo.setAvailable(SysConstast.AVAILABLE_TRUE);
         List<Menu> list = this.menuService.queryAllMenuForList(menuvo);
         List<TreeNode> treeNodes = new ArrayList<>();
         return new DataGridView(listToNodes(list, treeNodes));
@@ -114,7 +115,10 @@ public class MenuController {
         }
     }
 
-    //把list里面的数据放到nodes
+    /**
+     * 把list里面的数据放到nodes
+     */
+
     private List<TreeNode> listToNodes(List<Menu> list, List<TreeNode> treeNodes) {
         for (Menu menu : list) {
             Integer id = menu.getId();
