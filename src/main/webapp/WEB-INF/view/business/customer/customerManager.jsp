@@ -193,7 +193,7 @@
             ]],
             done: function (data, curr, count) {
                 //不是第一页时如果当前返回的的数据为0那么就返回上一页
-                if (data.data.length == 0 && curr != 1) {
+                if (data.data.length === 0 && curr !== 1) {
                     tableIns.reload({
                         page: {
                             curr: curr - 1

@@ -7,6 +7,7 @@
     <title>登陆</title>
 </head>
 <body>
-    <jsp:forward page="login/toLogin.action"></jsp:forward>
+<%--suppress CheckTagEmptyBody --%>
+<jsp:forward page="login/toLogin.action"></jsp:forward>
 </body>
 </html>

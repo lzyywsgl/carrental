@@ -152,7 +152,17 @@
                     }
                 }
                 , {fixed: 'right', title: '操作', toolbar: '#roleBar', width: 220, align: 'center'}
-            ]]
+            ]],
+            done: function (data, curr, count) {
+                //不是第一页时如果当前返回的的数据为0那么就返回上一页
+                if (data.data.length === 0 && curr !== 1) {
+                    tableIns.reload({
+                        page: {
+                            curr: curr - 1
+                        }
+                    });
+                }
+            }
         });
         //模糊查询
         $("#doSearch").click(function () {
