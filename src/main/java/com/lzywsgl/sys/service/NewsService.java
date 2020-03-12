@@ -17,31 +17,31 @@ public interface NewsService {
     /**
      * 查询所有公告
      */
-    public DataGridView queryAllNews(Newsvo newsvo);
+    DataGridView queryAllNews(Newsvo newsvo);
 
     /**
      * 添加公告
      */
-    public void addNews(Newsvo newsvo);
+    void addNews(Newsvo newsvo);
 
     /**
      * 修改公告
      */
-    public void updateNews(Newsvo newsvo);
+    void updateNews(Newsvo newsvo);
 
     /**
      * 根据id删除公告
      */
-    public void deleteNews(Integer newsid);
+    void deleteNews(Integer newsid);
 
     /**
      * 批量删除公告
      */
-    public void deleteBatchNews(Integer[] ids);
+    void deleteBatchNews(Integer[] ids);
 
     /**
      * 查询一个公告
      */
-    public News queryNewsById(Integer id);
+    News queryNewsById(Integer id);
 
 }

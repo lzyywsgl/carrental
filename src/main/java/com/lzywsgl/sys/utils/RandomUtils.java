@@ -29,7 +29,7 @@ public class RandomUtils {
      * @param fileName 文件名称
      */
     public static String createFileNameUseTime(String fileName) {
-        String fileSuffix = fileName.substring(fileName.lastIndexOf("."), fileName.length());
+        String fileSuffix = fileName.substring(fileName.lastIndexOf("."));
         String time = sdf2.format(new Date());
         Integer num = random.nextInt(9000) + 1000;
         return time + num + fileSuffix;
@@ -42,7 +42,7 @@ public class RandomUtils {
      * @param suffix   临时文件的后缀
      */
     public static String createFileNameUseTime(String fileName, String suffix) {
-        String fileSuffix = fileName.substring(fileName.lastIndexOf("."), fileName.length());
+        String fileSuffix = fileName.substring(fileName.lastIndexOf("."));
         String time = sdf2.format(new Date());
         Integer num = random.nextInt(9000) + 1000;
         return time + num + fileSuffix + suffix;
@@ -54,7 +54,7 @@ public class RandomUtils {
      * @param fileName 文件名称
      */
     public static String createFileNameUseUUID(String fileName) {
-        String fileSuffix = fileName.substring(fileName.lastIndexOf("."), fileName.length());
+        String fileSuffix = fileName.substring(fileName.lastIndexOf("."));
         return UUID.randomUUID().toString().replace("-", "").toUpperCase() + fileSuffix;
     }
 

@@ -7,20 +7,20 @@ public interface LogInfoService {
     /**
      * 查询所有日志
      */
-    public DataGridView queryAllLogInfo(LogInfovo logInfovo);
+    DataGridView queryAllLogInfo(LogInfovo logInfovo);
 
     /**
      * 添加日志
      */
-    public void addLogInfo(LogInfovo logInfovo);
+    void addLogInfo(LogInfovo logInfovo);
 
     /**
      * 根据id删除日志
      */
-    public void deleteLogInfo(Integer logInfoid);
+    void deleteLogInfo(Integer logInfoid);
 
     /**
      * 批量删除日志
      */
-    public void deletebatchLogInfo(Integer[] ids);
+    void deletebatchLogInfo(Integer[] ids);
 }

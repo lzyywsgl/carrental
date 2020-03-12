@@ -19,47 +19,47 @@ public interface RoleService {
     /**
      * 查询所有角色返回
      */
-    public List<Role> queryAllRoleForList(Rolevo rolevo);
+    List<Role> queryAllRoleForList(Rolevo rolevo);
 
     /**
      * 根据用户id查询用户的可用角色
      */
-    public List<Role> queryRoleByUserIdForList(Rolevo rolevo, Integer userId);
+    List<Role> queryRoleByUserIdForList(Rolevo rolevo, Integer userId);
 
     /**
      * 查询所有角色
      */
-    public DataGridView queryAllRole(Rolevo rolevo);
+    DataGridView queryAllRole(Rolevo rolevo);
 
     /**
      * 添加角色
      */
-    public void addRole(Rolevo rolevo);
+    void addRole(Rolevo rolevo);
 
     /**
      * 修改角色
      */
-    public void updateRole(Rolevo rolevo);
+    void updateRole(Rolevo rolevo);
 
     /**
      * 根据id删除角色
      */
-    public void deleteRole(Integer roleid);
+    void deleteRole(Integer roleid);
 
     /**
      * 批量删除角色
      */
-    public void deleteBatchRole(Integer[] ids);
+    void deleteBatchRole(Integer[] ids);
 
     /**
      * 加载角色管理分配菜单的json
      */
-    public DataGridView initRoleMenuTreeJson(Integer roleid);
+    DataGridView initRoleMenuTreeJson(Integer roleid);
 
     /**
      * 保存角色和菜单的关系
      */
-    public void saveRoleMenu(Rolevo rolevo);
+    void saveRoleMenu(Rolevo rolevo);
 
 
 }

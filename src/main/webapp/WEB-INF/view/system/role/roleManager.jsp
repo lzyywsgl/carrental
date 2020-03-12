@@ -153,7 +153,7 @@
                 }
                 , {fixed: 'right', title: '操作', toolbar: '#roleBar', width: 220, align: 'center'}
             ]]
-        })
+        });
         //模糊查询
         $("#doSearch").click(function () {
             var params = $("#searchFrm").serialize();
@@ -235,7 +235,7 @@
             $.post(url, params, function (obj) {
                 layer.msg(obj.msg);
                 //关闭弹出层
-                layer.close(mainIndex)
+                layer.close(mainIndex);
                 //刷新数据 表格
                 tableIns.reload();
             })
