@@ -64,12 +64,12 @@
         <!--设置白名单-->
         <init-param>
             <param-name>allow</param-name>
-            <param-value></param-value>
+            <param-value/>
         </init-param>
         <!--设置黑名单-->
         <init-param>
             <param-name>deny</param-name>
-            <param-value></param-value>
+            <param-value/>
         </init-param>
     </servlet>
 
