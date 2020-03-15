@@ -172,14 +172,14 @@
         ,{field:'title', title:'菜单名称',align:'center',width:'120'}
         ,{field:'href', title:'菜单地址',align:'center',width:'220'}
         ,{field:'spread', title:'是否展开',align:'center',width:'100',templet:function(d){
-        return d.spread=='1'?'<font color=blue>展开</font>':'<font color=red>不展开</font>';
+        return d.spread===1?'<span style="color: blue; ">展开</span>':'<span style="color: red; ">不展开</span>';
         }}
         ,{field:'target', title:'TARGET',align:'center',width:'100'}
         ,{field:'icon', title:'菜单图标',align:'center',width:'100',templet:function(d){
         return "<div class='layui-icon'>"+d.icon+"</div>";
         }}
         ,{field:'available', title:'是否可用',align:'center',width:'100',templet:function(d){
-        return d.available=='1'?'<font color=blue>可用</font>':'<font color=red>不可用</font>';
+        return d.available===1?'<span style="color: blue; ">可用</span>':'<span style="color: red; ">不可用</span>';
         }}
         ,{fixed: 'right', title:'操作', toolbar: '#menuBar', width:180,align:'center'}
         ]],

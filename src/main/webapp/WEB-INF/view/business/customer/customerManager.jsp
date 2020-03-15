@@ -185,7 +185,7 @@
                 , {field: 'career', title: '客户职位', align: 'center', width: '120'}
                 , {
                     field: 'sex', title: '性别', align: 'center', width: '80', templet: function (d) {
-                        return d.sex == '1' ? '<font color=blue>男</font>' : '<font color=red>女</font>';
+                        return d.sex === 1 ? '<span style="color: blue; ">男</span>' : '<span style="color: red; ">女</span>';
                     }
                 }
                 , {field: 'createtime', title: '录入时间', align: 'center', width: '180'}

@@ -176,10 +176,16 @@
 </div>
 <!-- 添加和修改的弹出层结束 -->
 
+<!-- 查看大图弹出的层 开始 -->
+<div id="viewCarImageDiv" style="display: none;text-align: center;">
+    <img alt="车辆图片" width="550" height="350" id="view_carimg">
+</div>
+<!-- 查看大图弹出的层 结束 -->
+
 <script src="${lzywsgl}/static/layui/layui.js"></script>
 <script type="text/javascript">
     var tableIns;
-    layui.use(['jquery', 'layer', 'form', 'table'], function () {
+    layui.use(['jquery', 'layer', 'form', 'table', 'upload'], function () {
         var $ = layui.jquery;
         var layer = layui.layer;
         var form = layui.form;
@@ -208,7 +214,11 @@
                     }
                 }
                 , {field: 'description', title: '车辆描述', align: 'center', width: '180'}
-                , {field: 'carimg', title: '缩略图', align: 'center', width: '180'}
+                , {
+                    field: 'carimg', title: '缩略图', align: 'center', width: '180', templet: function (d) {
+                        return "<img width=40 height=40 src=${lzywsgl}/file/downloadShowFile.action?path=" + d.carimg + " />";
+                    }
+                }
                 , {field: 'createtime', title: '录入时间', align: 'center', width: '180'}
                 , {fixed: 'right', title: '操作', toolbar: '#carBar', width: 220, align: 'center'}
             ]],
@@ -251,7 +261,7 @@
             if (layEvent === 'del') { //删除
                 layer.confirm('真的删除【' + data.carnumber + '】这个车辆吗', function (index) {
                     //向服务端发送删除指令
-                    $.post("${lzywsgl}/car/deleteCar.action", {identity: data.identity}, function (res) {
+                    $.post("${lzywsgl}/car/deleteCar.action", {carnumber: data.carnumber}, function (res) {
                         layer.msg(res.msg);
                         //刷新数据 表格
                         tableIns.reload();
@@ -260,6 +270,9 @@
             } else if (layEvent === 'edit') {
                 //编辑
                 openUpdateCar(data);
+            } else if (layEvent === 'viewImage') {
+                // 查看大图
+                showCarImage(data);
             }
         });
 
@@ -277,7 +290,7 @@
                     //清空表单数据
                     $("#dataFrm")[0].reset();
                     //设置默认图片
-                    $("#showCarImg").attr("src", "${lzywsgl}/file/downloadShowFile.action?path=images/defaultcarimage.jpg")
+                    $("#showCarImg").attr("src", "${lzywsgl}/file/downloadShowFile.action?path=images/defaultcarimage.jpg");
                     $("#carimg").val("images/defaultcarimage.jpg");
                     url = "${lzywsgl}/car/addCar.action";
                     $("#carnumber").removeAttr("readonly");
@@ -322,9 +335,9 @@
             var params = "";
             $.each(data, function (i, item) {
                 if (i === 0) {
-                    params += "ids=" + item.identity;
+                    params += "ids=" + item.carnumber;
                 } else {
-                    params += "&ids=" + item.identity;
+                    params += "&ids=" + item.carnumber;
                 }
             });
             layer.confirm('真的删除选中的这些车辆吗', function (index) {
@@ -344,13 +357,26 @@
             url: '${lzywsgl}/file/uploadFile.action',
             method: "post",  //此处是为了演示之用，实际使用中请将此删除，默认用post方式提交
             acceptMime: 'images/*',
-            field: "mf",
+            field: "multipartFile",
             done: function (res, index, upload) {
                 $('#showCarImg').attr('src', "${lzywsgl}/file/downloadShowFile.action?path=" + res.data.src);
                 $('#carimg').val(res.data.src);
                 $('#carimgDiv').css("background", "#fff");
             }
         });
+
+        //查看大图
+        function showCarImage(data){
+            mainIndex=layer.open({
+                type:1,
+                title:"【"+data.carnumber+'】的车辆图片',
+                content:$("#viewCarImageDiv"),
+                area:['600px','400px'],
+                success:function(index){
+                    $("#view_carimg").attr("src","${lzywsgl}/file/downloadShowFile.action?path="+data.carimg);
+                }
+            });
+        }
     });
 </script>
 </body>

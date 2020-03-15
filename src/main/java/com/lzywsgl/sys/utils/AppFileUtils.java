@@ -19,7 +19,7 @@ public class AppFileUtils {
     /**
      * 得到文件上传的路径
      */
-    private static String PATH = "E:/upload/";
+    public static String PATH = "E:/upload/";
 
     static {
         InputStream stream = AppFileUtils.class.getClassLoader().getResourceAsStream("file.properties");
@@ -36,9 +36,8 @@ public class AppFileUtils {
      * 文件下载
      *
      * @param response 请求
-     * @param path 路径
-     * @param oldName 原命名
-     * @return
+     * @param path     路径
+     * @param oldName  原命名
      */
     public static ResponseEntity<Object> downloadFile(HttpServletResponse response, String path, String oldName) {
         //4,使用绝对路径+相对路径去找到文件对象
@@ -65,7 +64,6 @@ public class AppFileUtils {
                 return entity;
             } catch (Exception e) {
                 e.printStackTrace();
-
             }
             return null;
         } else {
@@ -101,7 +99,7 @@ public class AppFileUtils {
      * 更改文件名
      *
      * @param carimg 原命名
-     * @param suffix 新命名
+     * @param suffix 后缀
      */
     public static String updateFileName(String carimg, String suffix) {
         //找到文件
@@ -120,7 +118,7 @@ public class AppFileUtils {
     /**
      * 根据路径删除图片
      *
-     * @param carimg
+     * @param carimg 路径
      */
     public static void removeFileByPath(String carimg) {
         //找到文件

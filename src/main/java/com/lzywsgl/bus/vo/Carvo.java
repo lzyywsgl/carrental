@@ -17,7 +17,7 @@ public class Carvo extends Car {
     private Integer limit;
 
     //接收多个id
-    private Integer[] ids;
+    private String[] ids;
 
     public Integer getPage() {
         return page;
@@ -35,11 +35,11 @@ public class Carvo extends Car {
         this.limit = limit;
     }
 
-    public Integer[] getIds() {
+    public String[] getIds() {
         return ids;
     }
 
-    public void setIds(Integer[] ids) {
+    public void setIds(String[] ids) {
         this.ids = ids;
     }
 }

@@ -214,7 +214,7 @@
                 , {field: 'address', title: '用户地址', align: 'center', width: '160'}
                 , {
                     field: 'sex', title: '性别', align: 'center', width: '80', templet: function (d) {
-                        return d.sex === '1' ? '<font color=blue>男</font>' : '<font color=red>女</font>';
+                        return d.sex === 1 ? '<span style="color: blue; ">男</span>' : '<span style="color: red; ">女</span>';
                     }
                 }
                 , {
@@ -224,7 +224,7 @@
                 }
                 , {
                     field: 'available', title: '是否可用', width: '100', align: 'center', templet: function (d) {
-                        return d.available === '1' ? '<font color=blue>可用</font>' : '<font color=red>不可用</font>';
+                        return d.available === 1 ? '<span style="color: blue; ">可用</span>' : '<span style="color: red; ">不可用</span>';
                     }
                 }
                 , {fixed: 'right', title: '操作', toolbar: '#userBar', width: 260, align: 'center'}

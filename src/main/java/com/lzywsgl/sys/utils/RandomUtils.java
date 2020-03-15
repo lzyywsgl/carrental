@@ -39,7 +39,7 @@ public class RandomUtils {
      * 生成文件名使用时间+4位随机数
      *
      * @param fileName 文件名称
-     * @param suffix   临时文件的后缀
+     * @param suffix   临时文件后缀
      */
     public static String createFileNameUseTime(String fileName, String suffix) {
         String fileSuffix = fileName.substring(fileName.lastIndexOf("."));
@@ -61,8 +61,7 @@ public class RandomUtils {
     /**
      * 根据时间+五位随机数生成字符串
      *
-     * @param preffx
-     * @return
+     * @param preffx 随机名称
      */
     public static String createRandomStringUseTime(String preffx) {
 

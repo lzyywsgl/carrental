@@ -148,7 +148,7 @@
                 , {field: 'roledesc', title: '角色备注', align: 'center'}
                 , {
                     field: 'available', title: '是否可用', align: 'center', templet: function (d) {
-                        return d.available == '1' ? '<font color=blue>可用</font>' : '<font color=red>不可用</font>';
+                        return d.available === 1 ? '<span style="color: blue; ">可用</span>' : '<span style="color: red; ">不可用</span>';
                     }
                 }
                 , {fixed: 'right', title: '操作', toolbar: '#roleBar', width: 220, align: 'center'}
@@ -258,7 +258,7 @@
             var data = checkStatus.data;
             var params = "";
             $.each(data, function (i, item) {
-                if (i == 0) {
+                if (i === 0) {
                     params += "ids=" + item.roleid;
                 } else {
                     params += "&ids=" + item.roleid;
