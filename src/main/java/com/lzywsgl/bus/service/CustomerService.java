@@ -1,5 +1,6 @@
 package com.lzywsgl.bus.service;
 
+import com.lzywsgl.bus.domain.Customer;
 import com.lzywsgl.bus.vo.Customervo;
 import com.lzywsgl.sys.utils.DataGridView;
 
@@ -36,4 +37,8 @@ public interface CustomerService {
      */
     void deleteBatchCustomer(String[] identities);
 
+    /**
+     * 根据身份证号查询客户信息
+     */
+    Customer queryCustomerByIdentity(String identity);
 }

@@ -28,4 +28,13 @@ public class BusController {
     public String toCarManager() {
         return "business/car/carManager";
     }
+
+    /**
+     * @return 出租管理
+     */
+
+    @RequestMapping("toRentCarManager")
+    public String toRentCarManager() {
+        return "business/rent/rentCarManager";
+    }
 }
