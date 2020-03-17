@@ -89,4 +89,32 @@ public class RentController {
     public DataGridView loadAllRent(Rentvo rentvo) {
         return this.rentService.queryAllRent(rentvo);
     }
+
+    /**
+     * 修改出租单信息
+     */
+    @RequestMapping("updateRent")
+    public ResultObj updateRent(Rentvo rentvo) {
+        try {
+            this.rentService.updateRent(rentvo);
+            return ResultObj.UPDATE_SUCCESS;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultObj.UPDATE_ERROR;
+        }
+    }
+
+    /**
+     * 删除出租单
+     */
+    @RequestMapping("deleteRent")
+    public ResultObj deleteRent(Rentvo rentvo) {
+        try {
+            this.rentService.deleteRent(rentvo.getRentid());
+            return ResultObj.DELETE_SUCCESS;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultObj.DELETE_ERROR;
+        }
+    }
 }

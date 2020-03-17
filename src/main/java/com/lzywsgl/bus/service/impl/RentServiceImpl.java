@@ -49,4 +49,21 @@ public class RentServiceImpl implements RentService {
         List<Rent> data = this.rentMapper.queryAllRent(rentvo);
         return new DataGridView(page.getTotal(), data);
     }
+
+    @Override
+    public void updateRent(Rentvo rentvo) {
+        this.rentMapper.updateByPrimaryKeySelective(rentvo);
+    }
+
+    @Override
+    public void deleteRent(String rentid) {
+        // 更改汽车的状态
+        Rent rent = this.rentMapper.selectByPrimaryKey(rentid);
+        Car car = new Car();
+        car.setCarnumber(rent.getCarnumber());
+        car.setIsrenting(SysConstast.RENT_CAR_FALSE);
+        carMapper.updateByPrimaryKeySelective(car);
+        // 删除出租单
+        this.rentMapper.deleteByPrimaryKey(rentid);
+    }
 }

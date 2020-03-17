@@ -22,4 +22,14 @@ public interface RentService {
      */
     DataGridView queryAllRent(Rentvo rentvo);
 
+    /**
+     * 修改出租单
+     */
+    void updateRent(Rentvo rentvo);
+
+    /**
+     * 删除出租单
+     */
+    void deleteRent(String rentid);
+
 }
