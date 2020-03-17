@@ -1,6 +1,7 @@
 package com.lzywsgl.bus.service;
 
 import com.lzywsgl.bus.domain.Customer;
+import com.lzywsgl.bus.domain.Rent;
 import com.lzywsgl.bus.vo.Rentvo;
 import com.lzywsgl.sys.utils.DataGridView;
 
@@ -32,4 +33,8 @@ public interface RentService {
      */
     void deleteRent(String rentid);
 
+    /**
+     * 根据出租单号查询出租单信息
+     */
+    Rent queryRentByRentId(String rentid);
 }

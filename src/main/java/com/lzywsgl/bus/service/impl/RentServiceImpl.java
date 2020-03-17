@@ -66,4 +66,9 @@ public class RentServiceImpl implements RentService {
         // 删除出租单
         this.rentMapper.deleteByPrimaryKey(rentid);
     }
+
+    @Override
+    public Rent queryRentByRentId(String rentid) {
+        return this.rentMapper.selectByPrimaryKey(rentid);
+    }
 }

@@ -45,4 +45,11 @@ public class BusController {
     public String toRentManager() {
         return "business/rent/rentManager";
     }
+    /**
+     * @return 汽车入库管理
+     */
+    @RequestMapping("toCheckCarManager")
+    public String toCheckCarManager() {
+        return "business/check/checkCarManager";
+    }
 }
