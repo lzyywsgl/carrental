@@ -1,6 +1,10 @@
 package com.lzywsgl.bus.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.lzywsgl.bus.domain.Rent;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 /**
  * @author Administrator
@@ -15,6 +19,30 @@ public class Rentvo extends Rent {
      */
     private Integer page;
     private Integer limit;
+
+    /**
+     * 时间
+     */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date startTime;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date endTime;
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
 
     public Integer getPage() {
         return page;

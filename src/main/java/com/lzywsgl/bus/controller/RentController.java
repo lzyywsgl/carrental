@@ -1,11 +1,13 @@
 package com.lzywsgl.bus.controller;
 
 import com.lzywsgl.bus.domain.Customer;
+import com.lzywsgl.bus.domain.Rent;
 import com.lzywsgl.bus.service.CustomerService;
 import com.lzywsgl.bus.service.RentService;
 import com.lzywsgl.bus.vo.Rentvo;
 import com.lzywsgl.sys.constast.SysConstast;
 import com.lzywsgl.sys.domain.User;
+import com.lzywsgl.sys.utils.DataGridView;
 import com.lzywsgl.sys.utils.RandomUtils;
 import com.lzywsgl.sys.utils.ResultObj;
 import com.lzywsgl.sys.utils.WebUtils;
@@ -78,5 +80,13 @@ public class RentController {
             e.printStackTrace();
             return ResultObj.ADD_ERROR;
         }
+    }
+
+    /**
+     * 查询
+     */
+    @RequestMapping("loadAllRent")
+    public DataGridView loadAllRent(Rentvo rentvo) {
+        return this.rentService.queryAllRent(rentvo);
     }
 }

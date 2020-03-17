@@ -2,6 +2,7 @@ package com.lzywsgl.bus.service;
 
 import com.lzywsgl.bus.domain.Customer;
 import com.lzywsgl.bus.vo.Rentvo;
+import com.lzywsgl.sys.utils.DataGridView;
 
 /**
  * @author Administrator
@@ -15,5 +16,10 @@ public interface RentService {
      * 保存出租单信息
      */
     void addRent(Rentvo rentvo);
+
+    /**
+     * 查询
+     */
+    DataGridView queryAllRent(Rentvo rentvo);
 
 }

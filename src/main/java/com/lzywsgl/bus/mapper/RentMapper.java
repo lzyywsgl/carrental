@@ -1,6 +1,7 @@
 package com.lzywsgl.bus.mapper;
 
 import com.lzywsgl.bus.domain.Rent;
+import java.util.List;
 
 public interface RentMapper {
     int deleteByPrimaryKey(String rentid);
@@ -14,4 +15,7 @@ public interface RentMapper {
     int updateByPrimaryKeySelective(Rent record);
 
     int updateByPrimaryKey(Rent record);
+
+    //查询
+    List<Rent> queryAllRent(Rent rent);
 }
