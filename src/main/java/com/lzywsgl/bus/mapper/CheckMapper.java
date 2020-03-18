@@ -2,6 +2,8 @@ package com.lzywsgl.bus.mapper;
 
 import com.lzywsgl.bus.domain.Check;
 
+import java.util.List;
+
 public interface CheckMapper {
     int deleteByPrimaryKey(String checkid);
 
@@ -14,4 +16,7 @@ public interface CheckMapper {
     int updateByPrimaryKeySelective(Check record);
 
     int updateByPrimaryKey(Check record);
+
+    //查询
+    List<Check> queryAllCheck(Check check);
 }

@@ -66,4 +66,26 @@ public class CheckController {
             return ResultObj.ADD_ERROR;
         }
     }
+
+    /**
+     * 查询
+     */
+    @RequestMapping("loadAllCheck")
+    public DataGridView loadAllCheck(Checkvo checkvo) {
+        return this.checkService.queryAllCheck(checkvo);
+    }
+
+    /**
+     * 修改检查单数据
+     */
+    @RequestMapping("updateCheck")
+    public ResultObj updateCheck(Checkvo checkvo) {
+        try {
+            this.checkService.updateCheck(checkvo);
+            return ResultObj.UPDATE_SUCCESS;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultObj.UPDATE_ERROR;
+        }
+    }
 }

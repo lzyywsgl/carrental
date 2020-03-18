@@ -1,5 +1,7 @@
 package com.lzywsgl.bus.controller;
 
+import com.lzywsgl.bus.vo.Checkvo;
+import com.lzywsgl.sys.utils.DataGridView;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -45,11 +47,20 @@ public class BusController {
     public String toRentManager() {
         return "business/rent/rentManager";
     }
+
     /**
      * @return 汽车入库管理
      */
     @RequestMapping("toCheckCarManager")
     public String toCheckCarManager() {
         return "business/check/checkCarManager";
+    }
+
+    /**
+     * @return 检查单管理
+     */
+    @RequestMapping("toCheckManager")
+    public String toCheckManager() {
+        return "business/check/checkManager";
     }
 }

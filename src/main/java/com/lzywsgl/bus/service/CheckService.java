@@ -1,6 +1,7 @@
 package com.lzywsgl.bus.service;
 
 import com.lzywsgl.bus.vo.Checkvo;
+import com.lzywsgl.sys.utils.DataGridView;
 
 import java.util.Map;
 
@@ -21,4 +22,15 @@ public interface CheckService {
      * 保存检查单数据
      */
     void addCheck(Checkvo checkvo);
+
+    /**
+     * 查询
+     */
+    DataGridView queryAllCheck(Checkvo checkvo);
+
+    /**
+     * 修改检查单
+     */
+    void updateCheck(Checkvo checkvo);
+
 }
