@@ -60,4 +60,9 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer queryCustomerByIdentity(String identity) {
         return this.customerMapper.selectByPrimaryKey(identity);
     }
+
+    @Override
+    public List<Customer> queryAllCustomerForList(Customervo customervo) {
+        return this.customerMapper.queryAllCustomer(customervo);
+    }
 }

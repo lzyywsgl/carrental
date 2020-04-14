@@ -21,6 +21,6 @@ public class AppListener implements ServletContextListener {
         //取到ServletContext
         ServletContext context = arg0.getServletContext();
         context.setAttribute("lzywsgl", context.getContextPath());
-        System.out.println("---------Servlet容器创建成功 ctx被放到ServletContext作用域-------");
+        System.out.println("---------Servlet容器创建成功 lzywsgl被放到ServletContext作用域-------");
     }
 }

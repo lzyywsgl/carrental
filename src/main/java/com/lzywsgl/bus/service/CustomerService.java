@@ -4,6 +4,8 @@ import com.lzywsgl.bus.domain.Customer;
 import com.lzywsgl.bus.vo.Customervo;
 import com.lzywsgl.sys.utils.DataGridView;
 
+import java.util.List;
+
 /**
  * @author Administrator
  * @title: CustomerService
@@ -41,4 +43,9 @@ public interface CustomerService {
      * 根据身份证号查询客户信息
      */
     Customer queryCustomerByIdentity(String identity);
+
+    /**
+     * 查询客户数据返回List
+     */
+    List<Customer> queryAllCustomerForList(Customervo customervo);
 }

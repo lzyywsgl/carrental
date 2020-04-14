@@ -1,14 +1,20 @@
 package com.lzywsgl.bus.controller;
 
+import com.lzywsgl.bus.domain.Customer;
 import com.lzywsgl.bus.service.CustomerService;
 import com.lzywsgl.bus.vo.Customervo;
+import com.lzywsgl.sys.utils.AppFileUtils;
 import com.lzywsgl.sys.utils.DataGridView;
+import com.lzywsgl.sys.utils.ExportListExcelUtils;
 import com.lzywsgl.sys.utils.ResultObj;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.ByteArrayOutputStream;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Administrator
@@ -76,6 +82,7 @@ public class CustomerController {
             return ResultObj.DELETE_ERROR;
         }
     }
+
     /**
      * 批量删除客户
      */
@@ -90,4 +97,14 @@ public class CustomerController {
         }
     }
 
+    /**
+     * 导出客户数据
+     */
+    @RequestMapping("exportCustomer")
+    public ResponseEntity<Object> exportCustomer(Customervo customervo) {
+        List<Customer> list = this.customerService.queryAllCustomerForList(customervo);
+        ByteArrayOutputStream bos = ExportListExcelUtils.exportList(list, "客户数据列表", "客户数据");
+        String fileName = "客户数据.xls";
+        return AppFileUtils.downloadFile(bos, fileName);
+    }
 }
