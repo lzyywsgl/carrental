@@ -11,10 +11,10 @@ import java.util.UUID;
  * @author Administrator
  */
 public class RandomUtils {
-    private static SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
-    private static SimpleDateFormat sdf2 = new SimpleDateFormat("yyyyMMddHHmmssSSS");
-    private static SimpleDateFormat sdf3 = new SimpleDateFormat("yyyyMMdd_HHmmss_SSS");
-    private static Random random = new Random();
+    private static final SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+    private static final SimpleDateFormat sdf2 = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+    private static final SimpleDateFormat sdf3 = new SimpleDateFormat("yyyyMMdd_HHmmss_SSS");
+    private static final Random random = new Random();
 
     /**
      * 得到当前日期

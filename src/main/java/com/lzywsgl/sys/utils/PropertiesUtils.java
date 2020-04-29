@@ -12,7 +12,7 @@ import java.util.Properties;
  * @createTime 2020年04月14日 14:37:00
  */
 public class PropertiesUtils {
-    private static Properties properties = new Properties();
+    private static final Properties properties = new Properties();
 
     static {
         InputStream stream = PropertiesUtils.class.getClassLoader().getResourceAsStream("export.properties");
