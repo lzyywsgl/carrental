@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="${lzywsgl}/static/css/public.css" media="all"/>
 </head>
 <body class="loginBody">
-<form class="layui-form" id="loginFrm" method="post" action="/login/login.action">
+<form class="layui-form" id="loginFrm" method="post" action="${lzywsgl}/login/login.action">
     <div class="login_face"><img src="${lzywsgl}/static/images/face.jpg" class="userAvatar"></div>
     <div class="layui-form-item input-item">
         <%--@declare id="username"--%><label for="userName">用户名</label>
@@ -29,9 +29,10 @@
                lay-verify="required">
     </div>
     <div class="layui-form-item input-item" id="imgCode">
-        <label for="code">验证码</label>
-        <input type="text" placeholder="请输入验证码" value="123" autocomplete="off" id="code" class="layui-input">
-        <img src="/static/images/code.jpg">
+        <%--@declare id="code"--%><label for="code">验证码</label>
+        <input type="text" placeholder="请输入验证码" autocomplete="off" name="code" class="layui-input"
+               lay-verify="required">
+        <img src="${lzywsgl}/login/captcha.action" width="130px" height="48px"/>
     </div>
     <div class="layui-form-item">
         <button class="layui-btn layui-block" lay-filter="login" lay-submit>登录</button>
@@ -43,8 +44,8 @@
             <a href="javascript:;" class="seraph icon-sina layui-col-xs4 layui-col-sm4 layui-col-md4 layui-col-lg4"></a> -->
     </div>
 </form>
-<script type="text/javascript" src="/static/layui/layui.js"></script>
-<script type="text/javascript" src="/static/js/cache.js"></script>
+<script type="text/javascript" src="${lzywsgl}/static/layui/layui.js"></script>
+<script type="text/javascript" src="${lzywsgl}/static/js/cache.js"></script>
 <script type="text/javascript">
     layui.use(['form', 'layer', 'jquery'], function () {
         var form = layui.form,
